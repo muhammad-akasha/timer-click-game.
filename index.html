@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        background-image: url("https://images.pexels.com/photos/3165335/pexels-photo-3165335.jpeg");
+        background-size: cover;
+        color:#fff
+      }
+      button {
+        cursor: pointer;
+      }
+      .game {
+       
+        border: 20px solid black;
+        width: 420px;
+        border-radius: 50px;
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 auto;
+        height: 600px;
+        background-size: cover;background-position: center
+       
+      }
+     
+      #count {
+        font-size: 40px;
+        font-size: 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+      }
+      #count input {
+        width: 80px;
+        padding: 30px 30px;
+        background: #000;
+        color: #fff;
+        text-align: center;
+        margin: 0 auto;
+        display: block;
+        font-size: 20px;
+      }
+      .players {
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+        font-size: 30px;
+      }
+      .displayBox {
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+        font-size: 30px;
+      }
+      .display1,
+      .display2 {
+        width: 100px;
+        height: 50px;
+        background: #000;
+        padding: 30px;
+        color: red;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      #btn1,
+      #btn2 {
+        padding: 15px;
+        font-size: 16px;
+        background: #000;
+        color: #fff;
+        margin: 20px 0px;
+        border-radius: 18px
+      }
+      .boxbtn {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+      }
+      #start {
+        padding: 13px 13px;
+        width: fit-content;
+        background: deepskyblue;
+        border-radius: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="game">
+      <h1>Set The Counter in Sec</h1>
+      <div id="count">
+        <input id="forCounter" type="number" />
+        <button onclick="set()" id="start">Start Counter</button>
+      </div>
+      <div class="players">
+        <div>
+          <h3>Player One</h3>
+        </div>
+        <div>
+          <h3>Player two</h3>
+        </div>
+      </div>
+      <div class="displayBox">
+        <div class="display1">0</div>
+        <div class="display2">0</div>
+      </div>
+      <div class="boxbtn">
+        <button onclick="addIncount1()" id="btn1">Click To Add</button>
+        <button onclick="addIncount2()" id="btn2">Click To Add</button>
+      </div>
+    </div>
+
+    <script>
+      let btn1 = document.getElementById("btn1");
+      let btn2 = document.getElementById("btn2");
+      let player1 = document.querySelector(".display1");
+      let player2 = document.querySelector(".display2");
+
+      btn1.setAttribute("disabled", "");
+      btn2.setAttribute("disabled", "");
+      function set() {
+        let count = parseInt(document.getElementById("forCounter").value);
+        btn1.removeAttribute("disabled");
+        btn2.removeAttribute("disabled");
+        if (count === "" || isNaN(count) || count === null){
+          alert("Please enter a Number in second")
+        }else if (count <= 0 ){
+          alert("value in minus are not allowed")
+        }else{
+        let set = setInterval(() => {
+          count = parseInt(count);
+          const minutes = Math.floor(count / 60);
+          const seconds = count % 60;
+          count--;
+          document.getElementById(
+            "count"
+          ).innerHTML = `${minutes} : ${seconds.toString().padStart(2, "0")} `;
+          if (count < 0) {
+            clearInterval(set);
+            btn1.setAttribute("disabled", "");
+            btn2.setAttribute("disabled", "");
+            winner(parseInt(player1.innerHTML), parseInt(player2.innerHTML));
+          }
+        }, 1000);
+      }
+      }
+
+      function winner(player1, player2) {
+        
+        if (player1 > player2) {
+          alert("player 1 Winner");
+        } else if (player2 > player1) {
+          alert("player 2 Winner");
+        } else {
+          alert("its a tie");
+        }
+      }
+
+      function addIncount1() {
+        let countVal1 = parseInt(player1.innerHTML);
+        countVal1++;
+        player1.innerHTML = countVal1;
+      }
+      function addIncount2() {
+        let countVal2 = parseInt(player2.innerHTML);
+        countVal2++;
+        player2.innerHTML = countVal2;
+      }
+    </script>
+  </body>
+</html>
