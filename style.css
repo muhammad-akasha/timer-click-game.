@@ -1,0 +1,99 @@
+body {
+    font-family: sans-serif;
+    background-image: url("https://images.pexels.com/photos/3165335/pexels-photo-3165335.jpeg");
+    background-size: cover;
+    color: #fff;
+  }
+  button {
+    cursor: pointer;
+  }
+  .game {
+    border: 20px solid black;
+    width: 420px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    height: 600px;
+    background-size: cover;
+    background-position: center;
+  }
+
+  #count {
+    font-size: 40px;
+    font-size: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+  #count input {
+    width: 80px;
+    padding: 30px 30px;
+    background: #000;
+    color: #fff;
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+    font-size: 20px;
+  }
+  .players {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    font-size: 30px;
+  }
+  .displayBox {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    font-size: 30px;
+  }
+  .display1,
+  .display2 {
+    width: 100px;
+    height: 50px;
+    background: #000;
+    padding: 30px;
+    color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #btn1,
+  #btn2 {
+    padding: 15px;
+    font-size: 16px;
+    background: #000;
+    color: #fff;
+    margin: 20px 0px;
+    border-radius: 18px;
+  }
+  .boxbtn {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+  }
+  #start {
+    padding: 13px 13px;
+    width: fit-content;
+    background: deepskyblue;
+    border-radius: 20px;
+  }
+  .result {
+    text-transform: uppercase;
+    padding: 25px;
+    font-weight: 900;
+    font-size: 25px;
+    color: aqua;
+  }
+  #reset {
+    padding: 10px 20px;
+    color: red;
+    background: #000;
+    border-radius: 250px;
+    display: none
+  }
